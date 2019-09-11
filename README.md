@@ -53,7 +53,7 @@ After finishing all the step just run the app using this bellow command!
 $ ./manage.py runserver
 System check identified no issues (0 silenced).
 July 08, 2019 - 06:36:26
-Django version 2.2.3, using settings 'contactapp.settings'
+Django version 2.2.3, using settings 'simpleapi.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
@@ -79,4 +79,4 @@ Now, go to ```127.0.0.0:8000/admin/``` and fill the login user name and password
 
 #### API
 
-Go to ``127.0.0.1:8000/game/`
+Go to `127.0.0.1:8000/game/`
