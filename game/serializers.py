@@ -2,7 +2,9 @@ from rest_framework import serializers
 
 from .models import (
     Category,
-    Game
+    Game,
+    Thread,
+    ThreadImage
 )
 
 
@@ -20,4 +22,4 @@ class GameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Game
         fields = '__all__'
-        read_only_field = ('id',)
+        read_only_fields = ('id',)

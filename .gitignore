@@ -202,3 +202,5 @@ dmypy.json
 # Pyre type checker
 
 # End of https://www.gitignore.io/api/python,django,jupyternotebooks
+
+node_modules/

@@ -1,6 +1,6 @@
 from rest_framework.generics import ListAPIView
 
-from .models import Game
+from .models import Game, ThreadImage
 from .serializers import GameSerializer
 
 
