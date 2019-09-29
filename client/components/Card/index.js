@@ -8,22 +8,22 @@ class Card extends React.Component{
         this.props = props;
     }
     render(){
-        const { classN } = this.props;
+        const { classN, value } = this.props;
         return(
             <div className={ (classN ? classN : 'col-md-12') + ' ' + 'card' }>
                 <div className="box">
                     <div className="img">
-                        <img src="/media/19688321_143404322878614_1977351481_o.jpg" />
+                        <img src={ value.image } />
                     </div>
-                    <h2>Prakash Prajapati<br /><span>Web Graphic Designer</span></h2>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                    <h2>{ value.category.name }<br /><span>{ value.name }</span></h2>
+                    <p> { value.description }</p>
                     <span>
                 <ul>
-                    <li><a href="#"><i className="fa fa-facebook" aria-hidden="true" /></a></li>
-                    <li><a href="#"><i className="fa fa-twitter" aria-hidden="true" /></a></li>
-                    <li><a href="#"><i className="fa fa-google-plus" aria-hidden="true" /></a></li>
-                    <li><a href="#"><i className="fa fa-linkedin" aria-hidden="true" /></a></li>
-                    <li><a href="#"><i className="fa fa-instagram" aria-hidden="true" /></a></li>
+                    <li><a href="#"><i class="far fa-heart"  aria-hidden="true" /></a></li>
+                    <li><a href="#"><i class="fas fa-comment-dots"  aria-hidden="true" /></a></li>
+                    <li><a href="#"><i class="fab fa-facebook-f"  aria-hidden="true" /></a></li>
+                    <li><a href="#"><i class="far fa-thumbs-down"  aria-hidden="true" /></a></li>
+                    <li><a href="#"><i class="fas fa-glasses"  aria-hidden="true" /></a></li>
                 </ul>
                 </span>
                 </div>
