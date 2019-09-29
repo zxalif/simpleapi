@@ -1,3 +1,16 @@
 body{
     font-family: 'Ubuntu', sans-serif;
 }
+
+.pagination{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 3px;
+    span{
+        padding: 5px;
+        border: 1px solid #000;
+        margin-right: 2px;
+        cursor: pointer;
+    }
+}

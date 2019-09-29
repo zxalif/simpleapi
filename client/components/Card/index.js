@@ -19,11 +19,11 @@ class Card extends React.Component{
                     <p> { value.description }</p>
                     <span>
                 <ul>
-                    <li><a href="#"><i class="far fa-heart"  aria-hidden="true" /></a></li>
-                    <li><a href="#"><i class="fas fa-comment-dots"  aria-hidden="true" /></a></li>
-                    <li><a href="#"><i class="fab fa-facebook-f"  aria-hidden="true" /></a></li>
-                    <li><a href="#"><i class="far fa-thumbs-down"  aria-hidden="true" /></a></li>
-                    <li><a href="#"><i class="fas fa-glasses"  aria-hidden="true" /></a></li>
+                    <li><a href="#"><i className="far fa-heart"  aria-hidden="true" /></a></li>
+                    <li><a href="#"><i className="fas fa-comment-dots"  aria-hidden="true" /></a></li>
+                    <li><a href="#"><i className="fab fa-facebook-f"  aria-hidden="true" /></a></li>
+                    <li><a href="#"><i className="far fa-thumbs-down"  aria-hidden="true" /></a></li>
+                    <li><a href="#"><i className="fas fa-glasses"  aria-hidden="true" /></a></li>
                 </ul>
                 </span>
                 </div>

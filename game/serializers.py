@@ -23,3 +23,10 @@ class GameSerializer(serializers.ModelSerializer):
         model = Game
         fields = '__all__'
         read_only_fields = ('id',)
+
+
+class BasicGameSearchSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Game
+        fields = ('name',)

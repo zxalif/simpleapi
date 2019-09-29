@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Card from "./Card";
 import Search from "./Search";
+require('jquery-ui-bundle');
 
 
 export default class App extends React.Component{
@@ -11,34 +12,50 @@ export default class App extends React.Component{
         super(props);
         this.props = props;
         this.state = {  };
+        this.search = React.createRef();
+        this._handle_search = this._handle_search.bind(this)
     }
     componentDidMount(){
-        axios.get('http://127.0.0.1:8000/game/')
+        axios.get('api/v1/game/')
             .then((result) => {
                 let data = result.data.results;
                 this.setState({
                     data
                 })
             })
+        this.search.current.search.current.focus();
     }
+    _handle_search(event){
+        const search = this.search.current.search.current;
+        axios.get('api/v1/search/game/', {'name': search.value})
+            .then((result) => {
+                let data = []
+                result.data.results.map(item => data.push(item.name));
+                console.log(data);
+                $('#search').autocomplete({source: data});
+            })
+    }
+
     render(){
         let { data } = this.state;
         return(
             <React.Fragment>
-                <Search></Search>
+                <Search onChange={this._handle_search} ref={this.search} />
                 {
                     data ? data.map((value, index) => {
                         return (
-                            <Card value={value} classN="col-md-12"></Card>
+                            <Card key={index} value={value} classN="col-md-12"></Card>
                         );
                     }) : ''
                 }
-                {/* <div className="row">
-                    <Card classN="col-md-3"></Card>
-                    <Card classN="col-md-3"></Card>
-                    <Card classN="col-md-3"></Card>
-                    <Card classN="col-md-3"></Card>
-                </div> */}
+                <div className="pagination">
+                    <span onClick={this.nextPage}>
+                        <i className={'fas fa-chevron-circle-left'}></i>
+                    </span>
+                    <span onClick={this.nextPage}>
+                        <i className={'fas fa-chevron-circle-right'}></i>
+                    </span>
+                </div>
             </React.Fragment>
         );
     }

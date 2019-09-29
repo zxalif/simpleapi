@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 
 class Category(models.Model):
@@ -24,6 +25,9 @@ class Game(models.Model):
         on_delete=models.CASCADE
     )
     description = models.TextField(default='')
+
+    # def get_absolute_url(self):
+    #     return reverse('')
 
     # slug = models.CharField(
     #     max_length=120,
