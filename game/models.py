@@ -23,6 +23,7 @@ class Game(models.Model):
         Category,
         on_delete=models.CASCADE
     )
+    description = models.TextField(default='')
 
     def __str__(self):
         return self.name
