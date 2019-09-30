@@ -16,17 +16,29 @@ class CategorySerializer(serializers.ModelSerializer):
         read_only_fields = ('id',)
 
 
+class BasicGameSearchSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Game
+        fields = ('name',)
+
+
+class ThreadSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Thread
+        fields = '__all__'
+
+
 class GameSerializer(serializers.ModelSerializer):
     category = CategorySerializer()
+    thread = serializers.SerializerMethodField()
 
     class Meta:
         model = Game
         fields = '__all__'
         read_only_fields = ('id',)
 
-
-class BasicGameSearchSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Game
-        fields = ('name',)
+    def get_thread(self, obj):
+        data = Thread.objects.filter(game__id=obj.id)
+        return ThreadSerializer(data, many=True).data
