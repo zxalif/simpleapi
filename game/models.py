@@ -66,7 +66,8 @@ class Thread(models.Model):
 class ThreadImage(models.Model):
     thread = models.ForeignKey(
         Thread,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name='thread_image'
     )
     image = models.ImageField()
 
