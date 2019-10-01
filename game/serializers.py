@@ -15,6 +15,7 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ('id',)
 
+
 class ThreadImageSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -29,9 +30,15 @@ class BasicGameSearchSerializer(serializers.ModelSerializer):
         fields = ('name',)
 
 
+class ThreadImageRelatedField(serializers.RelatedField):
+
+    def to_representation(self, value):
+        return '%s' % (value.image.url)
+
+
 class ThreadSerializer(serializers.ModelSerializer):
 
-    thread_image = ThreadImageSerializer(many=True)
+    thread_image = ThreadImageRelatedField(read_only=True, many=True)
 
     class Meta:
         model = Thread
